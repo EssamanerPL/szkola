@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <from id="form1">
+        <input type="text" id="input">
+    </from>
+    <button onclick="execute()">Apply</button>
+    <div id="result"></div>
+    <br>
+    <div id="maxValue"></div>
+    <br>
+    <div id="avarageValue"></div>
+</body>
+<script>
+    let array = []
+    array.slice(0, 8)
+    //zad 1
+    if (array.length <= 8) {
+        function execute() {
+            if (array.length < 8) {
+                array.push(parseInt(document.getElementById("input").value))
+                document.getElementById("result").innerHTML = array + " "
+            } else {
+                document.getElementById("result").innerHTML = "Nie można podać więcej niż 8 wartości. lista: " + array 
+            }
+            //zad 2
+            let highestValue = Math.max(...array)
+            document.getElementById("maxValue").innerHTML = "Największa wartość w tablicy: " + highestValue
+
+            //zad 3
+            let avgValue = array.reduce((a, b) => a+b, 0)/(array.length)
+            document.getElementById("avarageValue").innerHTML = "średnia wartość elementów tablicy: " + avgValue
+        }
+    }
+</script>
+
+</html>
